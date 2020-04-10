@@ -51,3 +51,6 @@ V 2.0.1 2018-10-15 By Hyungho Choi
 
 V 2.0.2 2018-10-16 By Hyungho Choi
 -Added reverse and midpoint calculations
+
+V 2.0.2.1 2018-10-17 By Hyungho Choi
+-Fixed Animation Glitches

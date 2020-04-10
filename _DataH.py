@@ -192,6 +192,7 @@ class Result():
             t += i[2] + ', '
         plt.title(t[:-2] + ' graph')
         plt.legend()
+        plt.ion()
         plt.show()
         subj = []
         #print ('bottom',subj)
@@ -240,6 +241,7 @@ class Result():
         plt.title(t[:-2] + ' graph')
         plt.grid(b=None, which='major', axis='both')
         plt.legend()
+        plt.ion()
         plt.show()
         subj = []
         #print ('bottom',subj)
@@ -301,6 +303,7 @@ class Result():
         quality = 10/scale
         anchor = np.arange(0,L['t'][-1],1/quality)
         intV = 0.01
+        plt.ion()
         plt.show()
         plt.title(self.name+'\nAnimation %s vs time'%(str(subj)))
         plt.legend()
@@ -435,7 +438,7 @@ class Result():
         quality = 10/scale
         anchor = np.arange(0,L['t'][-1],1/quality)
         intV = 0.01
-        
+        plt.ion()
         plt.show()
         plt.title(self.name+'\nAnimation %s vs time'%(str(subj)))
         plt.legend()
