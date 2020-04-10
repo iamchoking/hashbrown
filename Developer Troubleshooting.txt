@@ -2,11 +2,11 @@ cannot install pip troubleshoot
 
 0. Try 'python' in cmd
 --> if it does not work, we must add python to environment variables
-Á¦¾îÆÇ > ½Ã½ºÅÛ ¹× º¸¾È > ½Ã½ºÅÛ > °í±Þ ½Ã½ºÅÛ ¼³Á¤ > È¯°æ º¯¼ö > ½Ã½ºÅÛ º¯¼ö Ãß°¡
-ÀÌ¸§: Path
+ì œì–´íŒ > ì‹œìŠ¤í…œ ë° ë³´ì•ˆ > ì‹œìŠ¤í…œ > ê³ ê¸‰ ì‹œìŠ¤í…œ ì„¤ì • > í™˜ê²½ ë³€ìˆ˜ > ì‹œìŠ¤í…œ ë³€ìˆ˜ ì¶”ê°€
+ì´ë¦„: Path
 
-ÀÌ¹Ì ÀÖ´Ù¸é: ÆÄÀÌ½ã Æú´õ µð·¢ÅÍ¸® Ãß°¡
-¾ø´Ù¸é: »õ·Î ¸¸µé¾î¼­ µð·¢ÅÍ¸® Ãß°¡
+ì´ë¯¸ ìžˆë‹¤ë©´: íŒŒì´ì¬ í´ë” ë””ëž™í„°ë¦¬ ì¶”ê°€
+ì—†ë‹¤ë©´: ìƒˆë¡œ ë§Œë“¤ì–´ì„œ ë””ëž™í„°ë¦¬ ì¶”ê°€
 
 getting pip
 
@@ -14,7 +14,7 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
 python get-pip.py
 
-ÀÌÁ¦ ´Ù½Ã ¼³Ä¡ °¡´É
+ì´ì œ ë‹¤ì‹œ ì„¤ì¹˜ ê°€ëŠ¥
 
 pip install matplotlib
 pip install openpyxl

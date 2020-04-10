@@ -1,0 +1,11 @@
+README.txt
+setup.py
+hashbrown/_DataH.py
+hashbrown/_FunctionBasic.py
+hashbrown/_HashBrown.py
+hashbrown/__init__.py
+hashbrown.egg-info/PKG-INFO
+hashbrown.egg-info/SOURCES.txt
+hashbrown.egg-info/dependency_links.txt
+hashbrown.egg-info/requires.txt
+hashbrown.egg-info/top_level.txt

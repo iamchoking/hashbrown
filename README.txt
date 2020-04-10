@@ -1,5 +1,5 @@
 ####################################################
-Runge Kutta Program by Hyungho Choi
+Hashbrown: A Runge Kutta 4-th Order Program by Hyungho Choi
 ####################################################
 
 -Please follow the instruction carefully (since I also do not know what could go wrong)
