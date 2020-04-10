@@ -22,6 +22,7 @@ class Result():
         self.values = values
         self.varName = varName
         self.name = name
+        #print (name,values)
         self.timestepR = values[1][0]-values[0][0] #timestep for inherent value dataset
 
     def __str__(self):
@@ -57,19 +58,24 @@ class Result():
             newname = self.name+', '+R.name
         else:
             newname = name
-        if R.timestepR >= self.timestepR:
-            k = int(R.timestepR/self.timestepR)
-            for i in range(len(R.values)):
-                newVal.append((R.values[i][0],tuple(list(self.values[i*k][1])+list(R.values[i][1])),))
-        else:
-            k = int(self.timestepR/R.timestepR)
-            for i in range(len(self.values)):
-                newVal.append(self.values[i][0],tuple(list(self.values[i][1])+list(R.values[i*k][1])))            
+        ts = min(R.values[0][0],self.values[0][0])
+        te = max(R.values[-1][0],self.values[-1][0])
+        step = max(R.timestepR,self.timestepR)
+        for i in np.arange(ts,te,step):
+            newVal.append((i,self.get(i)[1] + R.get(i)[1]))
         return Result(newVal,newvarName,newname)
 
     def get(self,t,varN = ''):
         if varN == '':
+            if t <= self.values[0][0]:
+                return self.values[0]
+            if t >= self.values[-1][0]:
+                return self.values[-1]
             return self.values[int(t/self.timestepR)]
+        if t <= self.values[0][0]:
+            return self.values[0][1][self.varName.index(varN)]
+        if t >= self.values[-1][0]:
+            return self.values[-1][1][self.varName.index(varN)]
         return self.values[int(t/self.timestepR)][1][self.varName.index(varN)]
 
     def write(self,wCmd=()):

@@ -37,9 +37,14 @@ V 1.0 2018-04-03 By Hyungho Choi
 python 2.7.11
 -Basic Functions Regarding Runge-Kutta Methods are set up
 
-V 2.0 2018-10-12 By Hyungho Choi
-Version Patched and updated for python 3.5.1
+V 2.0 2018-10-12 By Hyungho Choi (Beta versions, tested on small demographic)
+*Version Patched and updated for python 3.5.1
 -Changed the structure to a class-based module
 -Added Data Module for plotting and output of data
 -Added More Write Options (excel, csv, graph)
 -Added Animations
+
+V 2.0.1 2018-10-15 By Hyungho Choi
+-Added mapF function (simple function mapping)
+-Added .merge method for result class
+-Data passing modified for faster calculation (_HashBrown-->rk4)

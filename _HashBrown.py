@@ -6,16 +6,28 @@ from _DataH import *
 class DiffFuncError(Exception):
     pass
 
+def mapF(ts,te,step,f,name = 'Function'): #maps a function with respect to time #f takes a tuple of functions
+    values = []
+    varName = []
+    for i in f:
+        varName.append(i.name)
+    for i in np.arange(ts,te,step):
+        temp = [0 for k in f]
+        for j in range(len(f)):
+            temp[j] = f[j].f(i)
+        values.append((i,tuple(temp)))
+    return Result(values,varName,name)
+
 def genK(t,step,s): #s contains two tuples of n elements ((values),(functions))
     #init
     v = list(s[0])
     f = s[1]
-    cR = range(len(v))
-    k1 = [0.0 for i in cR]
-    k2 = [0.0 for i in cR]
-    k3 = [0.0 for i in cR]
-    k4 = [0.0 for i in cR]
+    k1 = [0.0 for i in s[0]]
+    k2 = [0.0 for i in s[0]]
+    k3 = [0.0 for i in s[0]]
+    k4 = [0.0 for i in s[0]]
     #step01
+    cR = range(len(s[0]))
     for i in cR:
         k1[i] = float(f[i].f(float(t),*v))
     
@@ -62,7 +74,7 @@ def rk4(ts,te,step,s,name = 'rkResult'): #s contains two tuples of n elements ((
         if i.var-1 != len(f):
             raise DiffFuncError('Invalid Function Set')
     values = []
-    values.append((ts,copy.deepcopy(v)))
+    values.append((ts,v)) #the v here used to be copy.deepcopy(v)
     t = ts
     while t <= te:
         v =  genK(t,step,(v,f))

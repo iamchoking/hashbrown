@@ -17,7 +17,7 @@ If you have pip installed in your version of python, this should be easy
 
 python -m pip install -U pip
 
-python -m pip install -U matplotlib
+pip install matplotlib
 
 pip install openpyxl
 

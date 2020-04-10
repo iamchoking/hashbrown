@@ -1,4 +1,3 @@
-import copy
 from math import *
 
 class FunctionError(Exception):
