@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: hashbrown
-Version: 4.0
-Summary: Read the documentation on Github at https://github.com/iamchoking/Hashbrown
-Home-page: https://github.com/iamchoking/Hashbrown
+Version: 4.1.0
+Summary: A python library for Runge-Kutta 4th order solver and interpreter. Read the documentation on Github at https://github.com/iamchoking/Hashbrown
+Home-page: https://github.com/iamchoking/Hashbrown/releases/tag/4.0.1
 Author: Hyungho Choi
 Author-email: planner.king@gmail.com
 License: UNKNOWN

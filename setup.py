@@ -3,18 +3,18 @@ from setuptools import find_packages, setup
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent.parent
-print (HERE)
+# print (HERE)
 
 # The text of the README file
-README = (HERE / "README.txt").read_text()
+README = (HERE / "README.md").read_text()
 #print (README)
 
 # This call to setup() does all the work
 setup(
     name="hashbrown",
     #versioning stuff
-    version="4.0",
-    description="Read the documentation on Github at https://github.com/iamchoking/Hashbrown",
+    version="4.2.0",
+    description="A python library for Runge-Kutta 4th order solver and interpreter. Read the documentation on Github at https://github.com/iamchoking/Hashbrown",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/iamchoking/Hashbrown",
@@ -26,12 +26,11 @@ setup(
     ],
     #license="MIT",
     packages = find_packages(),
-    install_requires=["openpyxl", "matplotlib"],
+    install_requires=["openpyxl","matplotlib","numpy"],
     include_package_data=True
 )
-'''
 
-install_requires=["feedparser", "html2text"],
+'''
 entry_points={
     "console_scripts": [
         "realpython=reader.__main__:main",
