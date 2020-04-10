@@ -1,6 +1,8 @@
 from _FunctionBasic import *
 from _DataH import *
 
+# I will die for a hot strip of hashbrown
+
 class DiffFuncError(Exception):
     pass
 
@@ -49,7 +51,7 @@ def genK(t,step,s): #s contains two tuples of n elements ((values),(functions))
 
 
 
-def rk4(ts,te,step,s,name = 'rkResult',wCmd = ()): #s contains two tuples of n elements ((values),(functions))
+def rk4(ts,te,step,s,name = 'rkResult'): #s contains two tuples of n elements ((values),(functions))
     v = s[0]
     f = s[1]
     varName = []
@@ -70,5 +72,4 @@ def rk4(ts,te,step,s,name = 'rkResult',wCmd = ()): #s contains two tuples of n e
 
         
     print ('Computation Finished')
-    write(values,varName,name,wCmd)
-    return (values,varName,name)
+    return Result(values,varName,name)
