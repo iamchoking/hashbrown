@@ -1,5 +1,5 @@
-from _FunctionBasic import *
-from _DataH import *
+from ._FunctionBasic import *
+from ._DataH import *
 
 # I will die for a hot strip of hashbrown
 

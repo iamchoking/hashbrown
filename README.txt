@@ -29,8 +29,11 @@ It is fine unless any error message shows up
 https://openpyxl.readthedocs.io/en/stable/#
 https://matplotlib.org/users/installing.html
 
-3. The three software architecture (_DataH, _FunctionBasic, _RungeKutta) must be on the same folder that you are working with
-(Or in the site packages) (it does not have to be in the same folder with openpyxl or matplotlib)
+3. Copy the [hashbrown] folder and paste it into the python site-packages
+directory: (...)\Python35\Lib\site-packages
+(example: C:\Python35\Lib\site-packages)
 
 installation is complete. You could take a Look at the (_Demo) for a quick lookaround
 take a look at the documentation for a quick tutorial
+
+#############################################################################

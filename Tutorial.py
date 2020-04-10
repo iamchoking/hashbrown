@@ -1,4 +1,4 @@
-from _HashBrown import *
+from hashbrown import *
 
 def interruptedForcedOsc(b,m,k,F0,w,tf,ts,te,name = 'ForceInt',dev = 0.0001):
     def F(t):

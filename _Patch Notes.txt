@@ -54,3 +54,7 @@ V 2.0.2 2018-10-16 By Hyungho Choi
 
 V 2.0.2.1 2018-10-17 By Hyungho Choi
 -Fixed Animation Glitches
+
+V 3.0 2019-01-25 By Hyungho Choi
+-Changed the import style to a bulit-in library. Now you don't have to drag around the same source at each location of your code
+-Set the library name to [hashbrown]

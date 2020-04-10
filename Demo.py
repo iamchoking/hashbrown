@@ -1,5 +1,5 @@
 #-*-coding:utf-8-*-
-from _HashBrown import *
+from hashbrown import *
 
 def catch(va = 0,vb = 0, vc = 0, A0 = (0,0), B0 = (300,0),C0 = (150,180),duration = 20,step = 0.001):
     def axp(t,ax,ay,bx,by,cx,cy):
