@@ -48,3 +48,6 @@ V 2.0.1 2018-10-15 By Hyungho Choi
 -Added mapF function (simple function mapping)
 -Added .merge method for result class
 -Data passing modified for faster calculation (_HashBrown-->rk4)
+
+V 2.0.2 2018-10-16 By Hyungho Choi
+-Added reverse and midpoint calculations

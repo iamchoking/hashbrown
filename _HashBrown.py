@@ -61,20 +61,25 @@ def genK(t,step,s): #s contains two tuples of n elements ((values),(functions))
     
     return v
 
-
-
-def rk4(ts,te,step,s,name = 'rkResult'): #s contains two tuples of n elements ((values),(functions))
+def rk4(ts,te,step,s,name = 'rkResult',ti = None): #s contains two tuples of n elements ((values),(functions))
     v = s[0]
     f = s[1]
     varName = []
     #print f
+    
+    if ti != None:
+        print (1)
+        return (rk4R(ti,ts,step,s,name).attach(rk4(ti,te,step,s,name)))
+    if ts>te:
+        return rk4R(ts,te,step,s,name = name)
+    
     for i in f:
         varName.append(i.name)
     for i in f:
         if i.var-1 != len(f):
             raise DiffFuncError('Invalid Function Set')
     values = []
-    values.append((ts,v)) #the v here used to be copy.deepcopy(v)
+    values.append((ts,list(v))) #the v here used to be copy.deepcopy(v)
     t = ts
     while t <= te:
         v =  genK(t,step,(v,f))
@@ -84,4 +89,32 @@ def rk4(ts,te,step,s,name = 'rkResult'): #s contains two tuples of n elements ((
 
         
     print ('Computation Finished')
+    return Result(values,varName,name)
+
+
+def rk4R(ts,te,step,s,name = 'rkResultR',discr = True): #a reverse version of rk4
+
+    v = s[0]
+    f = invSign(s[1])
+    varName = []
+    #print f
+    
+    for i in f:
+        varName.append(i.name)
+    for i in f:
+        if i.var-1 != len(f):
+            raise DiffFuncError('Invalid Function Set')
+    values = []
+    values.append((ts,v)) #the v here used to be copy.deepcopy(v)
+    t = ts
+    while t >= te:
+        v =  genK(t,step,(v,f))
+        t -= step
+        values.append((t,list(v)))
+    values.reverse()
+    #print (values[:10])
+    print ('Computation Finished')
+    if discr:
+        name = name + '(to %s)'%(str(ts)[:3])
+    print (name)
     return Result(values,varName,name)

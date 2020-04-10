@@ -10,6 +10,9 @@ import mpl_toolkits.mplot3d.axes3d as p3
 outs = 10
 # outs denotes how many actual data is recorded as the output (10 means every 10th step is recorded
 
+class InvalidAttach(Exception):
+    pass
+
 def rectXLSX(ws,rect):
     for i in range(len(rect)):
         for j in range(len(rect[i])):
@@ -35,6 +38,22 @@ class Result():
             for k in j[1]:
                 S+='\t%f' %(k)
         return S
+    
+    def __len__(self):
+        return len(self.varName)
+
+    def get(self,t,varN = ''):
+        if varN == '':
+            if t <= self.values[0][0]:
+                return self.values[0]
+            if t >= self.values[-1][0]:
+                return self.values[-1]
+            return self.values[int((t-self.values[0][0])/self.timestepR)]
+        if t <= self.values[0][0]:
+            return self.values[0][1][self.varName.index(varN)]
+        if t >= self.values[-1][0]:
+            return self.values[-1][1][self.varName.index(varN)]
+        return self.values[int((t-self.values[0][0])/self.timestepR)][1][self.varName.index(varN)]
 
     def merge(self,R,name = None,varMerge = False):
         newVal = []
@@ -62,21 +81,22 @@ class Result():
         te = max(R.values[-1][0],self.values[-1][0])
         step = max(R.timestepR,self.timestepR)
         for i in np.arange(ts,te,step):
-            newVal.append((i,self.get(i)[1] + R.get(i)[1]))
+            #print (self.get(i)[1] , R.get(i)[1])
+            try:
+                newVal.append((i,self.get(i)[1] + R.get(i)[1]))
+            except:
+                print (self.get(i)[1] , R.get(i)[1])
+                newVal.append((i,list(self.get(i)[1]) + list(R.get(i)[1])))                
         return Result(newVal,newvarName,newname)
-
-    def get(self,t,varN = ''):
-        if varN == '':
-            if t <= self.values[0][0]:
-                return self.values[0]
-            if t >= self.values[-1][0]:
-                return self.values[-1]
-            return self.values[int(t/self.timestepR)]
-        if t <= self.values[0][0]:
-            return self.values[0][1][self.varName.index(varN)]
-        if t >= self.values[-1][0]:
-            return self.values[-1][1][self.varName.index(varN)]
-        return self.values[int(t/self.timestepR)][1][self.varName.index(varN)]
+    
+    def attach(self,R):
+        if R.varName != self.varName:
+            raise InvalidAttach('Attachment not compatible (varName different)')
+        elif self.values[-1][0] - R.values[0][0] >= self.timestepR:
+            raise InvalidAttach('Attachment not compatible (time incompatible)')
+        elif self.timestepR - R.timestepR >= self.timestepR*0.01:
+            raise InvalidAttach('Attachment not compatible (timestep incompatible)')
+        return Result(self.values+R.values[1:],self.varName,self.name)
 
     def write(self,wCmd=()):
         print ('Initiate Output Module ...\n')
