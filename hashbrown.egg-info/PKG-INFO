@@ -1,51 +1,30 @@
 Metadata-Version: 2.1
 Name: hashbrown
-Version: 4.1.0
+Version: 4.2.0
 Summary: A python library for Runge-Kutta 4th order solver and interpreter. Read the documentation on Github at https://github.com/iamchoking/Hashbrown
-Home-page: https://github.com/iamchoking/Hashbrown/releases/tag/4.0.1
+Home-page: https://github.com/iamchoking/Hashbrown
 Author: Hyungho Choi
 Author-email: planner.king@gmail.com
 License: UNKNOWN
-Description: ####################################################
-        Hashbrown: A Runge Kutta 4-th Order Program by Hyungho Choi
-        ####################################################
+Description: # **Hashbrown**
         
-        -Please follow the instruction carefully (since I also do not know what could go wrong)
+        ![Hashbrown_Icon](/HBicon.png)
         
-        0. Setup
-        	This Program uses two additional modules that is not included in the original python package.
+        A Runge-Kutta 4th order solver program for initial value differential equations
         
-        The programs are matplotlib (for plotting directly from python) and openpyxl (for accessing excel from python)
+        ## Developed, Documented and Managed by Hyungho Choi
         
-        If you have pip installed in your version of python, this should be easy
+        ### Designed Specifically for Students in Korea Science Academy of KAIST
         
-        1. Open the command prompt (type "cmd" on your start menu
-        2. Type the following lines and hit enter (one by one)
-        ##########################################################################
+        For installation, simply open command prompt and type:
         
-        python -m pip install -U pip
+            pip install hashbrown
         
-        pip install matplotlib
+        if something goes wrong, try the manual installation.
         
-        pip install openpyxl
+        Documentations listed [here](HashBrown%20%20Program%20Documentation.pdf)
         
-        #########################################################################
-        Executing each line will either load alot of things or say the requirement is already satisfied
-        It is fine unless any error message shows up
-        
-        -If this does not work for you, get some help at
-        https://openpyxl.readthedocs.io/en/stable/#
-        https://matplotlib.org/users/installing.html
-        
-        3. Copy the [hashbrown] folder and paste it into the python site-packages
-        directory: (...)\Python35\Lib\site-packages
-        (example: C:\Python35\Lib\site-packages)
-        
-        installation is complete. You could take a Look at the (_Demo) for a quick lookaround
-        take a look at the documentation for a quick tutorial
-        
-        #############################################################################
-        
+        Find the github repository [here](https://github.com/iamchoking/Hashbrown) (for previous versions with patch notes)
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.7
