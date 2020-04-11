@@ -13,8 +13,8 @@ README = (HERE / "README.md").read_text()
 setup(
     name="hashbrown",
     #versioning stuff
-    version="4.2.0",
-    description="A python library for Runge-Kutta 4th order solver and interpreter. Read the documentation on Github at https://github.com/iamchoking/Hashbrown",
+    version="4.2.1",
+    description="A Python library for Runge-Kutta 4th order solver and interpreter. Designed for students in KSA.",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/iamchoking/Hashbrown",
@@ -29,11 +29,3 @@ setup(
     install_requires=["openpyxl","matplotlib","numpy"],
     include_package_data=True
 )
-
-'''
-entry_points={
-    "console_scripts": [
-        "realpython=reader.__main__:main",
-    ]
-},
-'''
