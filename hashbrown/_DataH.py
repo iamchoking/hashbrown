@@ -1,7 +1,8 @@
 #-*-coding:utf-8-*-
 
 import numpy as np
-from openpyxl import *
+# from openpyxl import *
+import openpyxl
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import time
@@ -156,7 +157,7 @@ class Result():
 
     def writeXLSX(self,s=1):
         print ('Writing XLSX file...\n')
-        wb = Workbook()
+        wb = openpyxl.Workbook()
         ws = wb.active
         ws.title = self.name[:30] #worksheet title cannot be longer than 31 characters!
         rectXLSX(ws,self.rect(s))

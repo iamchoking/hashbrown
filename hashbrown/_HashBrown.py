@@ -118,3 +118,5 @@ def rk4R(ts,te,step,s,name = 'rkResultR',discr = True): #a reverse version of rk
         name = name + '(to %s)'%(str(ts)[:3])
     print (name)
     return Result(values,varName,name)
+
+print("Hello!")

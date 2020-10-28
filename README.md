@@ -16,7 +16,7 @@ if something goes wrong, try the manual installation.
 
 For manual Installation, download the Latest ZIP release [here](https://github.com/iamchoking/Hashbrown/releases) and follow the [Manual Installation Guide](https://github.com/iamchoking/Hashbrown/blob/master/Manual_Installation_Guide.txt)
 
-**Documentations listed [here](https://github.com/iamchoking/Hashbrown/raw/master/Hashbrown_Program_Documentation.pdf)**
+**Documentations** listed [here](https://github.com/iamchoking/Hashbrown/raw/master/Hashbrown_Program_Documentation.pdf)
 *+ demo & tutorial source codes [here](https://github.com/iamchoking/Hashbrown/tree/master/tests)*
 
 If you run into problems, maybe the [Developer Troubleshooting Guide](https://github.com/iamchoking/Hashbrown/blob/master/Developer_Troubleshooting.txt) might help (simple bug fixes are frequently updated here). If this doesn't work, contact one of the developers (shown in the github repository).

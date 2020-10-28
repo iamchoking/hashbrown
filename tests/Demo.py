@@ -1,5 +1,6 @@
 #-*-coding:utf-8-*-
 from hashbrown import *
+from math import *
 
 def catch(va = 0,vb = 0, vc = 0, A0 = (0,0), B0 = (300,0),C0 = (150,180),duration = 20,step = 0.001):
     def axp(t,ax,ay,bx,by,cx,cy):
@@ -25,7 +26,7 @@ def catch(va = 0,vb = 0, vc = 0, A0 = (0,0), B0 = (300,0),C0 = (150,180),duratio
     Cy = Function(cyp,7,'Cy')
 
     D = rk4(0,duration,step,((A0[0],A0[1],B0[0],B0[1],C0[0],C0[1]),(Ax,Ay,Bx,By,Cx,Cy)),'Catch_Va %d_Vb %d_Vc %d'%(va,vb,vc))
-    D.animateF(subj=[('Ax','Ay'),('Bx','By'),('Cx','Cy')],tail = 0,scale = 3,conS = (0,1,2,'L'))
+    D.animateF(subj=[('Ax','Ay'),('Bx','By'),('Cx','Cy')],tail = 0,scale = 3)
 
 ######################################################################################################
 ######################################################################################################
@@ -87,8 +88,7 @@ def doublePendulum(m1=1,m2=1,l1=1,l2=1,a0=0,b0=0,wa0=0,wb0=10,g=9.8,time = 15,st
     Dp = Result(D2,('x1','y1','x2','y2'),'Double Pendulum')
     
     #writeCSV(D2,('x1','y1','x2','y2'),'Double Pendulum_Processed wa0_%d wb0_%d timestep_%fs'%(wa0,wb0,step))
-    Dp.animateF(subj = [('x1','y1'),('x2','y2')],conS=('0',0,1),tail = 0)
-    Dp.animateF(subj = [('x1','y1'),('x2','y2')],conS=('0',0,1),tail = 1)
+    Dp.animateF(subj = [('x1','y1'),('x2','y2')],tail = 1)
     ######################################################################################################
     ######################################################################################################
     ######################################################################################################
@@ -150,6 +150,8 @@ def showcase():
     doublePendulum(step = 0.0001,m1 = 1,m2=1,l1=3,l2=3,a0=1,b0=1.4,wa0=0,wb0=4)
     input ('continue')
     doublePendulum(step = 0.0001,m1 = 1,m2=1,l1=3,l2=3,a0=1,b0=1.4,wa0=-2,wb0=8)
+    print('\n\nDEMO FINISHED')
+
 
 if __name__ == '__main__':
     showcase()

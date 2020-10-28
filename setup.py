@@ -19,12 +19,12 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/iamchoking/Hashbrown",
     author="Hyungho Choi",
-    author_email="planner.king@gmail.com",
+    author_email="iamchoking247@gmail.com",
     classifiers=[
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.7",
     ],
-    #license="MIT",
+    license="MIT",
     packages = find_packages(),
     install_requires=["openpyxl","matplotlib","numpy"],
     include_package_data=True

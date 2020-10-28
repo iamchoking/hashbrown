@@ -1,4 +1,7 @@
+#-*-coding:utf-8-*-
+
 from hashbrown import *
+from math import *
 
 def interruptedForcedOsc(b,m,k,F0,w,tf,ts,te,name = 'ForceInt',dev = 0.0001):
     def F(t):
@@ -15,6 +18,8 @@ def interruptedForcedOsc(b,m,k,F0,w,tf,ts,te,name = 'ForceInt',dev = 0.0001):
     F2 = Function(yp,3,'Speed')
 
     return rk4(ts,te,dev,((0,0),(F1,F2)),name)
-
+#%%
 R = interruptedForcedOsc(1,1,1,10,10,10,0,20)
-R.animateF(subj = [('t','Displacement','Speed')])
+#%%
+R.writeANIM(subj = [('t','Displacement','Speed')],timescale = 2)
+#%%
