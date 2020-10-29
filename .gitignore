@@ -4,3 +4,6 @@
 .hashbrown/__pycache__/
 *.pyc
 *.pyo
+build/
+dist/
+hashbrown.egg-info/

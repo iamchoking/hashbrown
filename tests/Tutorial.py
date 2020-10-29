@@ -23,7 +23,7 @@ R = interruptedForcedOsc(1,1,1,10,10,10,0,20)
 
 #un-comment each statement and check the results
 # R.writeCSV()
-# R.writeXLSX()
-# R.writePLOT()
-# R.writeANIM()
+#R.writeXLSX()
+#R.writePLOT()
+#R.writeANIM()
 R.writeANIM(subj = [('t','Displacement','Speed')],timescale = 2, tail = 4)
