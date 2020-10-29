@@ -2,6 +2,8 @@
 
 import numpy as np
 import openpyxl as xl
+# import matplotlib
+# print (matplotlib.get_backend())
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import mpl_toolkits.mplot3d.axes3d as p3
@@ -21,6 +23,22 @@ def rectXLSX(ws,rect):
 
 
 class Result():
+    """
+    hashbrown: Result Class
+
+    Parameters
+    ----------
+    values (tuple): an iterable with the form of ((t0,(x10,x20,x30)),(t1,(x11,x21,x31)),...), which is a typical output of rk4 function
+    
+    varName (tuple): an iterable listing each names of variables ('t' is reserved for time)
+    
+    name   (string): name of Result
+
+    Notes
+    -----
+    A dictionary representation is automatically generated, which is used by most built-in methods in hashbrown.
+    """
+
     def __init__(self,values,varName,name):
         """
         hashbrown: Result Class
@@ -53,6 +71,9 @@ class Result():
             for k in range(len(j[1])):
                 self.L[varName[k]].append(j[1][k])
 
+        self.L['t'] = np.array(self.L['t'])
+        for l in self.varName:
+            self.L[l]  =np.array(self.L[l])
     #X1#BUILTIN OVERLOADS
 
     def __str__(self):
@@ -155,6 +176,10 @@ class Result():
         Parameters
         ----------
         R (Class Result): the Result class variable to attach. must have same .timestepR and coincide at one point.
+
+        Notes
+        ----------
+        Internal Function. not recommended for use in user API
         """
         if R.varName != self.varName:
             raise InvalidAttach('Attachment not compatible (varName different)')
@@ -243,7 +268,7 @@ class Result():
 
     #X4#Visualization Methods
 
-    def close():
+    def close(self):
         """
         closes open plots
 
@@ -283,7 +308,7 @@ class Result():
         # initialize objects
         L = self.L
         timestep = self.timestepR
-
+        timestep = timestep + 1 - 1 #haha someone find this please
         for i in subj:
             if len(i) != len(subj[0]) or (len(i)!=2 and len(i)!=3):
                 raise(UnmatchingSubj("Subject array invalid (Length). Animate Failed."))
@@ -494,11 +519,11 @@ class Result():
                         L[subj[i][1]][int(x/timestep):int(t/timestep):skipper]
                         ])
                 else:
-                    line.set_data_3d([
+                    line.set_data([
                         L[subj[i][0]][int(x/timestep):int(t/timestep):skipper],
-                        L[subj[i][1]][int(x/timestep):int(t/timestep):skipper],
-                        L[subj[i][2]][int(x/timestep):int(t/timestep):skipper]
+                        L[subj[i][1]][int(x/timestep):int(t/timestep):skipper]
                         ])
+                    line.set_3d_properties(L[subj[i][2]][int(x/timestep):int(t/timestep):skipper])
                         # line.set_3d_properties(L[subj[i][2]][int(x/timestep):int(t/timestep)])
             return Lines
         
@@ -509,10 +534,10 @@ class Result():
         #    print (i,L[i][:10])
         #print (subj)
         for i in subj:
-            X+=L[i[0]]
-            Y+=L[i[1]]
+            X+=list(L[i[0]])
+            Y+=list(L[i[1]])
             if not is2D:
-                Z+=L[i[2]]
+                Z+=list(L[i[2]])
         minX,minY,maxX,maxY = min(X),min(Y),max(X),max(Y)
         if not is2D:
             minZ,maxZ = min(Z),max(Z)
@@ -560,6 +585,7 @@ class Result():
         #one of the most complicated functions. Strongly recommend investigating how this works with the man page
 
         plt.show()
+        plt.pause(0.05) # for some reason, some environments do not display animation since they do not exit .show()
 
         return ani
    

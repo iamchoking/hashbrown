@@ -13,7 +13,7 @@ README = (HERE / "README.md").read_text()
 setup(
     name="hashbrown",
     #versioning stuff
-    version="4.4.0",
+    version="4.4.1",
     description="A Python library for Runge-Kutta 4th order solver and interpreter. Designed for students in KSA.",
     long_description=README,
     long_description_content_type="text/markdown",

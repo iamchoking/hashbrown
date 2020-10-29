@@ -12,6 +12,8 @@ For installation, simply open command prompt and type:
 
     pip install hashbrown
 
+*NOTE: you need tkinter for plotting and animation. It should be installed as default, but if it isn't, more info [here](https://tkdocs.com/tutorial/install.html#installwin)*
+
 if something goes wrong, try the manual installation.
 
 For manual Installation, download the Latest ZIP release [here](https://github.com/iamchoking/hashbrown/releases) and follow the [Manual Installation Guide](https://github.com/iamchoking/hashbrown/blob/master/Manual_Installation_Guide.txt)
