@@ -1,3 +1,6 @@
 *.xlsx
 *.csv
 .vscode
+.hashbrown/__pycache__/
+*.pyc
+*.pyo
